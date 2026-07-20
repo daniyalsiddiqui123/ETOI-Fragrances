@@ -231,11 +231,11 @@ export function ProductDetailClient({
 
               {(product.topNotes?.length || product.heartNotes?.length || product.baseNotes?.length) && (
                 <div className="border-t border-gray-200 pt-4 sm:pt-6">
-                  <h3 className="text-xs tracking-[0.15em] uppercase text-gray-400 mb-3">Fragrance Notes</h3>
+                  <h3 className="font-serif text-lg text-black font-bold mb-3">Fragrance Notes</h3>
                   <div className="grid grid-cols-3 gap-4">
                     {product.topNotes?.length > 0 && (
                       <div>
-                        <p className="text-[10px] tracking-[0.15em] uppercase text-gray-400 mb-1.5">Top</p>
+                        <p className="text-[10px] tracking-[0.15em] uppercase text-etoi-gray mb-1.5">Top</p>
                         <div className="space-y-0.5">
                           {product.topNotes.map((note, i) => (
                             <p key={i} className="text-sm text-etoi-primary">{note}</p>
@@ -245,7 +245,7 @@ export function ProductDetailClient({
                     )}
                     {product.heartNotes?.length > 0 && (
                       <div>
-                        <p className="text-[10px] tracking-[0.15em] uppercase text-gray-400 mb-1.5">Heart</p>
+                        <p className="text-[10px] tracking-[0.15em] uppercase text-etoi-gray mb-1.5">Heart</p>
                         <div className="space-y-0.5">
                           {product.heartNotes.map((note, i) => (
                             <p key={i} className="text-sm text-etoi-primary">{note}</p>
@@ -255,7 +255,7 @@ export function ProductDetailClient({
                     )}
                     {product.baseNotes?.length > 0 && (
                       <div>
-                        <p className="text-[10px] tracking-[0.15em] uppercase text-gray-400 mb-1.5">Base</p>
+                        <p className="text-[10px] tracking-[0.15em] uppercase text-etoi-gray mb-1.5">Base</p>
                         <div className="space-y-0.5">
                           {product.baseNotes.map((note, i) => (
                             <p key={i} className="text-sm text-etoi-primary">{note}</p>
