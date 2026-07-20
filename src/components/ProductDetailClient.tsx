@@ -77,7 +77,7 @@ export function ProductDetailClient({
     <>
       <section className="pt-24 sm:pt-28 pb-12 sm:pb-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <nav className="mb-6 sm:mb-10">
+          <nav className="mb-4 sm:mb-6">
             <ol className="flex items-center gap-2 text-[10px] sm:text-xs tracking-[0.15em] uppercase text-gray-400">
               <li>
                 <Link href="/" className="hover:text-etoi-primary transition-colors">
@@ -97,6 +97,16 @@ export function ProductDetailClient({
               <li className="text-etoi-primary truncate max-w-[120px] sm:max-w-none">{product.name}</li>
             </ol>
           </nav>
+
+          <Link
+            href={`/${category}`}
+            className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs text-black font-bold hover:text-etoi-primary transition-colors mb-6 sm:mb-10"
+          >
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <polyline points="15 18 9 12 15 6" />
+            </svg>
+            Back to {category === 'men' ? 'Men' : 'Women'}
+          </Link>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
             <motion.div
