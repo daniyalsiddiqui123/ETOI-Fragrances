@@ -73,5 +73,26 @@ export const product = defineType({
       type: 'boolean',
       initialValue: true,
     }),
+    defineField({
+      name: 'topNotes',
+      title: 'Top Notes',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'The initial, lighter scents perceived immediately upon application',
+    }),
+    defineField({
+      name: 'heartNotes',
+      title: 'Heart Notes (Middle)',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'The core of the fragrance that emerges after the top notes fade',
+    }),
+    defineField({
+      name: 'baseNotes',
+      title: 'Base Notes',
+      type: 'array',
+      of: [{ type: 'string' }],
+      description: 'The deep, long-lasting scents that remain after the fragrance dries down',
+    }),
   ],
 })

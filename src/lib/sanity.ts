@@ -20,6 +20,9 @@ function mapSanityProduct(p: Record<string, unknown>): Product {
     rating: (p.rating as number) || 0,
     reviewCount: (p.reviewCount as number) || 0,
     inStock: p.inStock !== false,
+    topNotes: (p.topNotes as string[]) || [],
+    heartNotes: (p.heartNotes as string[]) || [],
+    baseNotes: (p.baseNotes as string[]) || [],
     createdAt: '',
   }
 }
@@ -28,7 +31,8 @@ const SANITY_QUERY = `{
   _id, "slug": slug.current, name, description, price, category,
   "images": images[].asset->url, sku,
   "rating": coalesce(rating, 0),
-  "reviewCount": coalesce(reviewCount, 0), inStock
+  "reviewCount": coalesce(reviewCount, 0), inStock,
+  topNotes, heartNotes, baseNotes
 }`
 
 export async function getProducts(category?: string): Promise<Product[]> {

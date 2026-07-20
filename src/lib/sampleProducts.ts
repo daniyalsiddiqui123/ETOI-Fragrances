@@ -12,7 +12,10 @@ export const sampleProducts: Product[] = [
     rating: 4.8,
     reviewCount: 124,
     inStock: true,
-    createdAt: new Date('2024-01-15').toISOString(),
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
+    createdAt: '',
   },
   {
     id: 'men-2',
@@ -25,6 +28,9 @@ export const sampleProducts: Product[] = [
     rating: 4.6,
     reviewCount: 89,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-02-20').toISOString(),
   },
   {
@@ -38,6 +44,9 @@ export const sampleProducts: Product[] = [
     rating: 4.7,
     reviewCount: 156,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-03-10').toISOString(),
   },
   {
@@ -51,6 +60,9 @@ export const sampleProducts: Product[] = [
     rating: 4.4,
     reviewCount: 67,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-04-05').toISOString(),
   },
   {
@@ -64,6 +76,9 @@ export const sampleProducts: Product[] = [
     rating: 4.9,
     reviewCount: 203,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-05-18').toISOString(),
   },
   {
@@ -77,6 +92,9 @@ export const sampleProducts: Product[] = [
     rating: 4.5,
     reviewCount: 98,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-06-22').toISOString(),
   },
   {
@@ -90,6 +108,9 @@ export const sampleProducts: Product[] = [
     rating: 4.9,
     reviewCount: 245,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-01-20').toISOString(),
   },
   {
@@ -103,6 +124,9 @@ export const sampleProducts: Product[] = [
     rating: 4.7,
     reviewCount: 178,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-02-14').toISOString(),
   },
   {
@@ -116,6 +140,9 @@ export const sampleProducts: Product[] = [
     rating: 4.6,
     reviewCount: 134,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-03-25').toISOString(),
   },
   {
@@ -129,6 +156,9 @@ export const sampleProducts: Product[] = [
     rating: 4.5,
     reviewCount: 92,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-04-30').toISOString(),
   },
   {
@@ -142,6 +172,9 @@ export const sampleProducts: Product[] = [
     rating: 4.8,
     reviewCount: 167,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-05-12').toISOString(),
   },
   {
@@ -155,6 +188,9 @@ export const sampleProducts: Product[] = [
     rating: 4.7,
     reviewCount: 211,
     inStock: true,
+    topNotes: [],
+    heartNotes: [],
+    baseNotes: [],
     createdAt: new Date('2024-06-08').toISOString(),
   },
 ]

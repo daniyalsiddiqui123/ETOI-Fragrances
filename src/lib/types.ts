@@ -9,6 +9,9 @@ export interface Product {
   rating: number
   reviewCount: number
   inStock: boolean
+  topNotes: string[]
+  heartNotes: string[]
+  baseNotes: string[]
   createdAt: string
 }
 
