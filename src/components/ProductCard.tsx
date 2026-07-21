@@ -46,37 +46,42 @@ export function ProductCard({ product, categoryPath, index = 0 }: ProductCardPro
         viewport={{ once: true, margin: '-50px' }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
       >
-        <Link
-          href={`/${categoryPath}/${product.id}`}
-          className="group block"
-        >
-          <div className="relative aspect-[4/5] overflow-hidden bg-white/50 mb-4">
-            <Image
-              src={imageSrc}
-              alt={product.name}
-              fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-              className="object-cover group-hover:scale-105 transition-transform duration-700"
-              onError={() => setImgError(true)}
-            />
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
-            <div className="absolute top-3 left-3">
-              {product.rating >= 4.8 && (
-                <span className="bg-etoi-secondary text-white text-[10px] px-2 py-1 tracking-[0.1em] uppercase font-medium">
-                  Best Seller
+        <div className="group">
+          <Link
+            href={`/${categoryPath}/${product.id}`}
+          >
+            <div className="relative aspect-[4/5] overflow-hidden bg-white/50 mb-4">
+              <Image
+                src={imageSrc}
+                alt={product.name}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                className="object-cover group-hover:scale-105 transition-transform duration-700"
+                onError={() => setImgError(true)}
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+              <div className="absolute top-3 left-3">
+                {product.rating >= 4.8 && (
+                  <span className="bg-etoi-secondary text-white text-[10px] px-2 py-1 tracking-[0.1em] uppercase font-medium">
+                    Best Seller
+                  </span>
+                )}
+              </div>
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <span className="bg-white/90 backdrop-blur-sm text-etoi-primary text-xs tracking-[0.15em] uppercase px-6 py-3">
+                  Quick View
                 </span>
-              )}
+              </div>
             </div>
-            <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-              <span className="bg-white/90 backdrop-blur-sm text-etoi-primary text-xs tracking-[0.15em] uppercase px-6 py-3">
-                Quick View
-              </span>
-            </div>
-          </div>
+          </Link>
           <div className="space-y-2">
-            <h3 className="font-serif text-lg text-etoi-primary group-hover:text-etoi-secondary transition-colors duration-300">
-              {product.name}
-            </h3>
+            <Link
+              href={`/${categoryPath}/${product.id}`}
+            >
+              <h3 className="font-serif text-lg text-etoi-primary group-hover:text-etoi-secondary transition-colors duration-300">
+                {product.name}
+              </h3>
+            </Link>
             <div className="flex items-center gap-2">
               <div className="flex">
                 {Array.from({ length: 5 }).map((_, i) => (
@@ -105,7 +110,7 @@ export function ProductCard({ product, categoryPath, index = 0 }: ProductCardPro
               Add to Cart
             </button>
           </div>
-        </Link>
+        </div>
       </motion.div>
       <CartNotification
         show={showToast}

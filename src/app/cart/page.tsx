@@ -73,7 +73,7 @@ export default function CartPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
           <div className="lg:col-span-2 space-y-4">
             {items.map((item, i) => (
               <motion.div
@@ -81,54 +81,111 @@ export default function CartPage() {
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="flex items-center gap-4 p-4 bg-white/50 border border-gray-100"
+                className="p-4 bg-white/50 border border-gray-100"
               >
-                <div className="relative w-20 h-24 bg-gray-50 flex-shrink-0 overflow-hidden">
-                  <Image
-                    src={item.productImage || '/images/product-placeholder.svg'}
-                    alt={item.productName}
-                    fill
-                    sizes="80px"
-                    className="object-cover"
+                {/* Mobile: two-row layout */}
+                <div className="sm:hidden">
+                  <div className="flex items-start gap-3">
+                    <div className="relative w-16 h-20 bg-gray-50 flex-shrink-0 overflow-hidden">
+                      <Image
+                        src={item.productImage || '/images/product-placeholder.svg'}
+                        alt={item.productName}
+                        fill
+                        sizes="80px"
+                        className="object-cover"
+                      />
+                    </div>
+
+                    <div className="flex-1 min-w-0">
+                      <Link
+                        href={`/men/${item.productId}`}
+                        className="font-serif text-sm text-etoi-primary hover:text-etoi-secondary transition-colors line-clamp-1"
+                      >
+                        {item.productName}
+                      </Link>
+                      <p className="text-sm text-etoi-primary font-medium mt-1">
+                        {formatPrice(item.price)}
+                      </p>
+                    </div>
+
+                    <button
+                      onClick={() => removeItem(item.productId)}
+                      className="text-gray-300 hover:text-red-500 transition-colors shrink-0"
+                      aria-label={`Remove ${item.productName}`}
+                    >
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  <div className="flex items-center justify-between mt-3 pt-3 border-t border-gray-50">
+                    <QuantitySelector
+                      quantity={item.quantity}
+                      onIncrease={() =>
+                        updateQuantity(item.productId, item.quantity + 1)
+                      }
+                      onDecrease={() =>
+                        updateQuantity(item.productId, item.quantity - 1)
+                      }
+                    />
+
+                    <p className="text-sm text-etoi-primary font-medium">
+                      {formatPrice(item.price * item.quantity)}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Tablet & Desktop: single-row layout */}
+                <div className="hidden sm:flex items-center gap-4">
+                  <div className="relative w-20 h-24 bg-gray-50 flex-shrink-0 overflow-hidden">
+                    <Image
+                      src={item.productImage || '/images/product-placeholder.svg'}
+                      alt={item.productName}
+                      fill
+                      sizes="80px"
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="flex-1 min-w-0">
+                    <Link
+                      href={`/men/${item.productId}`}
+                      className="font-serif text-sm text-etoi-primary hover:text-etoi-secondary transition-colors line-clamp-1"
+                    >
+                      {item.productName}
+                    </Link>
+                    <p className="text-sm text-etoi-primary font-medium mt-1">
+                      {formatPrice(item.price)}
+                    </p>
+                  </div>
+
+                  <QuantitySelector
+                    quantity={item.quantity}
+                    onIncrease={() =>
+                      updateQuantity(item.productId, item.quantity + 1)
+                    }
+                    onDecrease={() =>
+                      updateQuantity(item.productId, item.quantity - 1)
+                    }
                   />
-                </div>
 
-                <div className="flex-1 min-w-0">
-                  <Link
-                    href={`/men/${item.productId}`}
-                    className="font-serif text-sm text-etoi-primary hover:text-etoi-secondary transition-colors line-clamp-1"
-                  >
-                    {item.productName}
-                  </Link>
-                  <p className="text-sm text-etoi-primary font-medium mt-1">
-                    {formatPrice(item.price)}
+                  <p className="text-sm text-etoi-primary font-medium w-24 text-right">
+                    {formatPrice(item.price * item.quantity)}
                   </p>
+
+                  <button
+                    onClick={() => removeItem(item.productId)}
+                    className="text-gray-300 hover:text-red-500 transition-colors"
+                    aria-label={`Remove ${item.productName}`}
+                  >
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                      <line x1="18" y1="6" x2="6" y2="18" />
+                      <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                  </button>
                 </div>
-
-                <QuantitySelector
-                  quantity={item.quantity}
-                  onIncrease={() =>
-                    updateQuantity(item.productId, item.quantity + 1)
-                  }
-                  onDecrease={() =>
-                    updateQuantity(item.productId, item.quantity - 1)
-                  }
-                />
-
-                <p className="text-sm text-etoi-primary font-medium w-24 text-right">
-                  {formatPrice(item.price * item.quantity)}
-                </p>
-
-                <button
-                  onClick={() => removeItem(item.productId)}
-                  className="text-gray-300 hover:text-red-500 transition-colors"
-                  aria-label={`Remove ${item.productName}`}
-                >
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-                    <line x1="18" y1="6" x2="6" y2="18" />
-                    <line x1="6" y1="6" x2="18" y2="18" />
-                  </svg>
-                </button>
               </motion.div>
             ))}
           </div>
